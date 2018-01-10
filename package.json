@@ -1,0 +1,26 @@
+{
+  "name": "tane",
+  "version": "0.0.1",
+  "description": "Tane (種) is a imageboard engine written using NodeJS",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "1.18.2",
+    "express": "4.16.2",
+    "jest": "22.0.5",
+    "sequelize": "4.30.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hails/tane.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hails/tane/issues"
+  },
+  "homepage": "https://github.com/hails/tane#readme"
+}
