@@ -6,13 +6,15 @@
   "dependencies": {
     "body-parser": "1.18.2",
     "express": "4.16.2",
-    "jest": "22.0.5",
     "sequelize": "4.30.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^22.0.5",
+    "supertest": "^3.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "test": "yarn run jest",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
