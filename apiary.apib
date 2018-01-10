@@ -1,0 +1,172 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Moyashi
+
+Moyashi is an api-first imageboard service.
+
+# Group Boards
+
+Resources related to handling with Boards.
+
+## Board Collection [/boards]
+
+### List all Boards [GET]
+
++ Response 200 (application/json)
+
+        {
+            "boards": [
+                {
+                    "slug": "an",
+                    "name": "Animes"
+                },  {
+                    "slug": "comp",
+                    "name": "Computarias"
+                }
+            ]
+        }
+
+### Create a New Board [POST]
+
++ slug (string) - An unique board slug to be used in URLs
++ name (string) - A user friendly name
+
++ Request (application/json)
+
+        {
+            "slug": "comp",
+            "name": "Computarias"
+        }
+            
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /boards/comp
+
+    + Body
+
+            {
+                "board": {
+                    "slug": "comp",
+                    "name": "Computarias",
+                    "url": "/boards/comp"
+                }
+            }
+
+## Board [/boards/{slug}]
+
++ Parameters
+    + slug (string) - Unique board slug
+
+### Get a Board [GET]
+
++ Response 200 (application/json)
+
+        {
+            "board": {
+                "slug": "comp",
+                "name": "Computarias",
+                "url": "/boards/comp"
+            }
+        }
+
+# Group Threads
+
+## Thread Collection [/boards/{slug}/threads]
+
+### Get all Threads from a Board [GET]
+
++ slug (string) - An unique board slug
+
++ Response 200 (application/json)
+
+        {
+            "threads": [
+                (...)
+            ]
+        }
+
+### Create a new Thread [POST]
+
++ subject (string) - A subject or title for the Thread
++ name (string) - The text that composes the main body of the Thread
+
++ Request (application/json)
+
+        {
+            "subject": "A subject for a Thread",
+            "body": "The text of the Thread"
+        }
+            
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /boards/comp/threads/39432
+
+    + Body
+
+            {
+                "thread": {
+                    "number": 39432,
+                    "subject": "A subject for a Thread",
+                    "body": "The text of the Thread",
+                    "url": "/boards/comp/threads/39432"
+                }
+            }
+
+## Thread [/boards/{slug}/threads/{number}]
+
++ Parameters
+    + slug (string) - Unique Board slug
+    + number (integer) - Unique post number that refers to the Thread
+
+### Get a single thread [GET]
+
++ Response 200 (application/json)
+
+        {
+            "thread": {
+                "number": 39432,
+                "subject": "A subject for a Thread",
+                "body": "The text of the Thread",
+                "url": "/boards/comp/threads/39432"
+                "replies": [
+                    (...)
+                ]
+            }
+        }
+
+### Create a new Reply [POST]
+
++ body (string) - The text that composes the main body of the Reply
+
++ Request (application/json)
+
+        {
+            "body": "The text of the Reply"
+        }
+            
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /boards/comp/threads/39432
+
+    + Body
+
+            {
+                "thread": {
+                    "number": 39432,
+                    "subject": "A subject for a Thread",
+                    "body": "The text of the Thread",
+                    "url": "/boards/comp/threads/39432",
+                    "replies": [
+                        {
+                            "body": "The text of the Reply"
+                        }
+                    ]
+                }
+            }
