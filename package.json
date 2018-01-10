@@ -11,16 +11,17 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hails/tane.git"
+    "url": "git+https://github.com/shutsuga/tane.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hails/tane/issues"
+    "url": "https://github.com/shutsuga/tane/issues"
   },
-  "homepage": "https://github.com/hails/tane#readme"
+  "homepage": "https://github.com/shutsuga/tane#readme"
 }
